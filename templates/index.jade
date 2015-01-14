@@ -1,0 +1,34 @@
+
+extends layout
+
+block nav
+  include partials/nav
+
+block header
+  block title
+    include partials/title
+  block signup
+    include partials/signup
+
+block content
+  h2.news-and-events News &amp; Upcoming Events
+
+  each article in articles
+    article
+      header
+        p.date
+          span= moment.utc(article.date).format('MMMM Do YYYY')
+        h2
+          a(href=article.url)= article.title
+      section.content
+        if article.intro.length > 0
+          | !{ typogr(article.intro).typogrify() }
+        if article.hasMore
+          p.more
+            a(href=article.url) Read More
+
+block prepend footer
+  if prevPage
+    a(href=prevPage.url) « Previous
+  if nextPage
+    a(href=nextPage.url) Next »

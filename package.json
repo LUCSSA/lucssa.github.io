@@ -1,0 +1,13 @@
+{
+  "name": "lucssa", 
+  "dependencies": {
+    "moment": "2.3.x",
+    "underscore": "1.4.x",
+    "typogr": "0.5.x"
+  },
+  "scripts": {
+    "preview": "stylus -w -m < contents/stylus/main.styl > contents/css/main.css && wintersmith preview",
+    "build": "stylus -c < contents/stylus/main.styl > contents/css/main.css && wintersmith build"
+  },
+  "repository": "none"
+}
